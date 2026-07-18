@@ -7,6 +7,7 @@ const button = tv({
 		variant: {
 			primary: 'border-transparent bg-twitter text-white hover:bg-twitter-hover',
 			secondary: 'border-line text-ink hover:border-twitter hover:text-twitter',
+			muted: 'border-transparent bg-surface text-ink hover:bg-line hover:text-twitter',
 		},
 		icon: {
 			true: 'aspect-square size-10 shrink-0 p-0',
