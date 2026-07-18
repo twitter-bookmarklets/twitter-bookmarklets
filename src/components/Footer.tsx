@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Bookmark } from 'lucide-react';
+import { LuBookmark } from 'react-icons/lu';
 
 export function Footer() {
 	return (
 		<footer className="mt-auto flex flex-col gap-3 border-t border-line pt-10 sm:flex-row sm:items-center sm:justify-between">
 			<p className="flex items-center gap-2 text-sm font-bold text-ink">
-				<Bookmark
+				<LuBookmark
 					className="size-4 text-twitter"
 					fill="currentColor"
 					strokeWidth={0}

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { Bookmark } from 'lucide-react';
+import { LuBookmark } from 'react-icons/lu';
 
 export function LegalPage({
 	title,
@@ -17,7 +17,7 @@ export function LegalPage({
 		<>
 			<header className="border-b border-line pb-10">
 				<h1 className="mb-3 flex flex-wrap items-center gap-2 text-2xl font-bold tracking-tight text-ink">
-					<Bookmark
+					<LuBookmark
 						className="size-6 text-twitter"
 						fill="currentColor"
 						strokeWidth={0}
