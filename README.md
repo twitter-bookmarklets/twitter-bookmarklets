@@ -76,8 +76,9 @@ window.__twitterCleanStop = true;
 ├── index.html              # App shell and font loading
 ├── public/favicon.svg      # Site icon
 ├── src/
-│   ├── App.tsx             # Landing page, install UI, setup guides
+│   ├── App.tsx             # Routes
 │   ├── bookmarklets.ts     # Bookmarklet source and href generation
+│   ├── pages/              # Home, Privacy, Disclaimer
 │   ├── index.css           # Layout styles
 │   └── main.tsx            # React entry point
 ├── package.json
