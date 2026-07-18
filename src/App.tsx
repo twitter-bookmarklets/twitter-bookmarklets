@@ -16,7 +16,7 @@ function DocumentTitle() {
 
 	useEffect(() => {
 		document.title = titles[pathname] ?? 'Twitter Bookmarklets';
-		window.scrollTo(0, 0);
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}, [pathname]);
 
 	return null;
