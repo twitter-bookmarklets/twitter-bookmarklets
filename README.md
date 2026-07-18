@@ -94,7 +94,8 @@ window.__twitterCleanStop = true;
 - Vite 8
 - Tailwind CSS 4 (`@tailwindcss/vite`)
 - Tailwind Variants
-- React Icons
+- Lucide React
+- React Icons (brand logos)
 - `@fontsource-variable/inter`
 - Oxlint
 - Oxfmt

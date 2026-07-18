@@ -1,13 +1,5 @@
 import { useState, type ReactNode } from 'react';
-import {
-	LuBookmark,
-	LuChevronDown,
-	LuHeart,
-	LuInfo,
-	LuMonitor,
-	LuSmartphone,
-	LuTrash2,
-} from 'react-icons/lu';
+import { Bookmark, ChevronDown, Heart, Info, Monitor, Smartphone, Trash2 } from 'lucide-react';
 import { bookmarklets, type Bookmarklet } from '../bookmarklets';
 import { Button } from '../components/Button';
 import { Warnings } from '../components/Warnings';
@@ -15,8 +7,8 @@ import { Warnings } from '../components/Warnings';
 type SetupId = 'pc' | 'mobile';
 
 const bookmarkletIcons = {
-	'remove-likes': LuHeart,
-	'delete-posts': LuTrash2,
+	'remove-likes': Heart,
+	'delete-posts': Trash2,
 } as const;
 
 export function Home() {
@@ -37,7 +29,7 @@ export function Home() {
 		<>
 			<header className="border-b border-line pb-10">
 				<p className="mb-3 flex items-center gap-2 text-2xl font-bold tracking-tight text-ink">
-					<LuBookmark
+					<Bookmark
 						className="size-6 text-twitter"
 						fill="currentColor"
 						strokeWidth={0}
@@ -62,7 +54,7 @@ export function Home() {
 				<section id="bookmarklets" className="scroll-mt-4">
 					<div className="flex flex-col gap-4">
 						{bookmarklets.map((item) => {
-							const Icon = bookmarkletIcons[item.id as keyof typeof bookmarkletIcons] ?? LuBookmark;
+							const Icon = bookmarkletIcons[item.id as keyof typeof bookmarkletIcons] ?? Bookmark;
 							const isCopied = copiedId === item.id;
 
 							return (
@@ -76,7 +68,7 @@ export function Home() {
 										</div>
 										<p className="text-sm text-ink">{item.description}</p>
 										<p className="mt-3 flex items-center gap-2 text-xs text-muted">
-											<LuInfo className="size-3.5 shrink-0" aria-hidden="true" />
+											<Info className="size-3.5 shrink-0" aria-hidden="true" />
 											<span>{item.usage}</span>
 										</p>
 									</div>
@@ -125,10 +117,10 @@ export function Home() {
 									className="flex w-full cursor-pointer items-center gap-3 px-5 py-4 text-left"
 								>
 									<span className="flex size-10 shrink-0 items-center justify-center">
-										<LuMonitor className="size-5 text-twitter" aria-hidden="true" />
+										<Monitor className="size-5 text-twitter" aria-hidden="true" />
 									</span>
 									<span className="flex-1 text-base font-bold text-ink">Computer</span>
-									<LuChevronDown
+									<ChevronDown
 										className={`size-4 shrink-0 text-muted transition-transform duration-300 ease-out ${
 											openSetupId === 'pc' ? 'rotate-180' : 'rotate-0'
 										}`}
@@ -177,10 +169,10 @@ export function Home() {
 									className="flex w-full cursor-pointer items-center gap-3 px-5 py-4 text-left"
 								>
 									<span className="flex size-10 shrink-0 items-center justify-center">
-										<LuSmartphone className="size-5 text-twitter" aria-hidden="true" />
+										<Smartphone className="size-5 text-twitter" aria-hidden="true" />
 									</span>
 									<span className="flex-1 text-base font-bold text-ink">Phone</span>
-									<LuChevronDown
+									<ChevronDown
 										className={`size-4 shrink-0 text-muted transition-transform duration-300 ease-out ${
 											openSetupId === 'mobile' ? 'rotate-180' : 'rotate-0'
 										}`}

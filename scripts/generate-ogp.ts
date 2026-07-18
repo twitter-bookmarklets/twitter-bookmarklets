@@ -2,6 +2,8 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { Bookmark } from 'lucide-react';
 import { Resvg } from '@resvg/resvg-js';
 import satori from 'satori';
 
@@ -21,11 +23,21 @@ const FONT_SIZE = 72;
 const ICON_SIZE = FONT_SIZE;
 const GAP = Math.round(FONT_SIZE * (8 / 24));
 
-const BOOKMARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${TWITTER}"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>`;
+function bookmarkDataUri() {
+	const markup = renderToStaticMarkup(
+		createElement(Bookmark, {
+			size: 24,
+			color: TWITTER,
+			fill: TWITTER,
+			strokeWidth: 0,
+		}),
+	);
+	return `data:image/svg+xml;base64,${Buffer.from(markup).toString('base64')}`;
+}
 
 async function main() {
 	const font = await readFile(path.join(__dirname, 'assets/Inter-Bold.ttf'));
-	const iconSrc = `data:image/svg+xml;base64,${Buffer.from(BOOKMARK_SVG).toString('base64')}`;
+	const iconSrc = bookmarkDataUri();
 
 	const element = createElement(
 		'div',

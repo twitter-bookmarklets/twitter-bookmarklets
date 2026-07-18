@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
+import { Bookmark, Globe } from 'lucide-react';
 import { FaGithub, FaTwitter } from 'react-icons/fa6';
-import { LuBookmark, LuGlobe } from 'react-icons/lu';
 import { Button } from './Button';
 
 const socialLinks = [
 	{
 		href: 'https://minagishl.com',
 		label: 'Website',
-		icon: LuGlobe,
+		icon: Globe,
 	},
 	{
 		href: 'https://github.com/minagishl',
@@ -43,7 +43,7 @@ export function Footer() {
 
 			<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 				<p className="flex items-center gap-2 text-sm font-bold text-ink">
-					<LuBookmark
+					<Bookmark
 						className="size-4 text-twitter"
 						fill="currentColor"
 						strokeWidth={0}
