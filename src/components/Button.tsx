@@ -1,4 +1,4 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { tv, type VariantProps } from 'tailwind-variants';
 
 const button = tv({
@@ -43,6 +43,10 @@ function isLinkProps(props: ButtonProps): props is ButtonAsLink {
 	return typeof props.href === 'string';
 }
 
+function isJavascriptHref(href: string) {
+	return /^javascript:/i.test(href);
+}
+
 export function Button(props: ButtonProps) {
 	const classes = button({
 		variant: props.variant,
@@ -59,8 +63,22 @@ export function Button(props: ButtonProps) {
 			href,
 			...anchorProps
 		} = props;
+		const bookmarklet = isJavascriptHref(href);
+
 		return (
-			<a href={href} className={classes} {...anchorProps}>
+			<a
+				ref={
+					bookmarklet
+						? (node) => {
+								// React blocks javascript: URLs on the href prop; set it on the DOM for bookmarklets.
+								if (node) node.setAttribute('href', href);
+							}
+						: undefined
+				}
+				{...(bookmarklet ? {} : { href })}
+				className={classes}
+				{...anchorProps}
+			>
 				{children}
 			</a>
 		);
