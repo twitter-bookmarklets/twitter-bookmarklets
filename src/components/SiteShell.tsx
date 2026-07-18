@@ -4,7 +4,7 @@ import { Footer } from './Footer';
 export function SiteShell({ children }: { children: ReactNode }) {
 	return (
 		<div className="mx-auto flex min-h-svh max-w-xl flex-col px-5 py-12 font-sans text-base leading-relaxed text-muted antialiased">
-			{children}
+			<main className="flex flex-1 flex-col">{children}</main>
 			<Footer />
 		</div>
 	);

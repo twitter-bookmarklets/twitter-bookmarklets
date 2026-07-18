@@ -1,21 +1,15 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Seo } from './components/Seo';
 import { SiteShell } from './components/SiteShell';
 import { Disclaimer } from './pages/Disclaimer';
 import { Home } from './pages/Home';
 import { Privacy } from './pages/Privacy';
 
-const titles: Record<string, string> = {
-	'/': 'Twitter Bookmarklets',
-	'/privacy': 'Privacy Policy — Twitter Bookmarklets',
-	'/disclaimer': 'Disclaimer — Twitter Bookmarklets',
-};
-
-function DocumentTitle() {
+function ScrollToTop() {
 	const { pathname } = useLocation();
 
 	useEffect(() => {
-		document.title = titles[pathname] ?? 'Twitter Bookmarklets';
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}, [pathname]);
 
@@ -25,7 +19,8 @@ function DocumentTitle() {
 export default function App() {
 	return (
 		<BrowserRouter>
-			<DocumentTitle />
+			<Seo />
+			<ScrollToTop />
 			<SiteShell>
 				<Routes>
 					<Route path="/" element={<Home />} />
