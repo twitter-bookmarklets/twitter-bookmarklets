@@ -11,3 +11,9 @@
 	--color-line: #eff3f4;
 	--color-surface: #f7f9f9;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		@apply scroll-smooth;
+	}
+}

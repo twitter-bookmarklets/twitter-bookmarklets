@@ -59,7 +59,7 @@ export function Home() {
 			</header>
 
 			<div className="flex flex-1 flex-col gap-16 pt-10 pb-10">
-				<section id="bookmarklets">
+				<section id="bookmarklets" className="scroll-mt-4">
 					<div className="flex flex-col gap-4">
 						{bookmarklets.map((item) => {
 							const Icon = bookmarkletIcons[item.id as keyof typeof bookmarkletIcons] ?? LuBookmark;
@@ -107,7 +107,7 @@ export function Home() {
 					</div>
 				</section>
 
-				<section id="setup">
+				<section id="setup" className="scroll-mt-4">
 					<div className="mb-8">
 						<h2 className="mb-2 text-lg font-bold text-ink">Setup</h2>
 						<p className="text-sm">Choose the steps for your device.</p>
