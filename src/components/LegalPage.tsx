@@ -33,7 +33,7 @@ export function LegalPage({
 				<p className="mt-4 text-xs text-muted">Last updated: {updated}</p>
 			</header>
 
-			<article className="flex flex-1 flex-col gap-8 pt-10 pb-14 text-sm text-ink">
+			<article className="flex flex-1 flex-col gap-8 pt-10 pb-10 text-sm text-ink">
 				{children}
 			</article>
 		</>

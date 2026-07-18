@@ -50,7 +50,7 @@ export function Home() {
 				</div>
 			</header>
 
-			<div className="flex flex-1 flex-col gap-16 pt-10 pb-14">
+			<div className="flex flex-1 flex-col gap-16 pt-10 pb-10">
 				<section id="bookmarklets">
 					<div className="flex flex-col gap-4">
 						{bookmarklets.map((item) => {
