@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+@theme {
+	--font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--color-twitter: #1d9bf0;
+	--color-twitter-hover: #1a8cd8;
+	--color-twitter-soft: #e8f5fd;
+	--color-ink: #14171a;
+	--color-muted: #536471;
+	--color-line: #eff3f4;
+	--color-surface: #f7f9f9;
+}
