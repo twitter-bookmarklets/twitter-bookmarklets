@@ -1,5 +1,14 @@
 import { useState, type ReactNode } from 'react';
-import { Bookmark, ChevronDown, Heart, Info, Monitor, Smartphone, Trash2 } from 'lucide-react';
+import {
+	Bookmark,
+	ChevronDown,
+	Heart,
+	Info,
+	Monitor,
+	Smartphone,
+	Trash2,
+	UserMinus,
+} from 'lucide-react';
 import { bookmarklets, type Bookmarklet } from '../bookmarklets';
 import { Button } from '../components/Button';
 import { Warnings } from '../components/Warnings';
@@ -9,6 +18,7 @@ type SetupId = 'pc' | 'mobile';
 const bookmarkletIcons = {
 	'remove-likes': Heart,
 	'delete-posts': Trash2,
+	'unfollow-all': UserMinus,
 } as const;
 
 export function Home() {
@@ -39,8 +49,8 @@ export function Home() {
 				</p>
 				<h1 className="mb-3 text-xl font-semibold text-ink">Clean up Twitter with one bookmark</h1>
 				<p className="max-w-md">
-					Bookmarklets for removing likes and deleting tweets. Drag a button onto your bookmarks bar
-					to install it.
+					Bookmarklets for removing likes, deleting tweets, and unfollowing accounts. Drag a button
+					onto your bookmarks bar to install it.
 				</p>
 				<div className="mt-6 flex flex-wrap gap-2">
 					<Button href="#bookmarklets">Add a bookmarklet</Button>
@@ -150,8 +160,8 @@ export function Home() {
 											will not run the script.
 										</Step>
 										<Step number={3} title="Run it on Twitter">
-											Open your Likes page for Remove Likes, or your Posts / Replies tab for Delete
-											Tweets, then click the bookmark.
+											Open the matching page for the bookmarklet you installed, then click the
+											bookmark.
 										</Step>
 									</ol>
 								</div>

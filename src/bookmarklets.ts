@@ -101,6 +101,62 @@ const deletePostsSource = `(()=>{
   })();
 })();`;
 
+const unfollowAllSource = `(()=>{
+  if(!/(^|\\.)(x|twitter)\\.com$/.test(location.hostname)||!/\\/following\\/?$/.test(location.pathname)){
+    alert("Open your own Following page first, then run this again.");
+    return;
+  }
+  if(prompt("This will unfollow everyone you follow.\\nThis is hard to undo.\\nType UNFOLLOW ALL to continue.")!=="UNFOLLOW ALL")return;
+  window.__twitterCleanStop=false;
+  const sleep=(ms)=>new Promise((resolve)=>setTimeout(resolve,ms));
+  const waitFor=async(selector,timeout=5000)=>{
+    const deadline=Date.now()+timeout;
+    while(Date.now()<deadline){
+      const element=document.querySelector(selector);
+      if(element)return element;
+      await sleep(100);
+    }
+    return null;
+  };
+  (async()=>{
+    let count=0;
+    let idle=0;
+    let errors=0;
+    while(!window.__twitterCleanStop&&idle<15){
+      const button=document.querySelector('[data-testid="UserCell"] [data-testid$="-unfollow"]');
+      if(!button){
+        idle++;
+        window.scrollBy(0,Math.max(innerHeight*0.9,700));
+        await sleep(2500);
+        continue;
+      }
+      idle=0;
+      const cell=button.closest('[data-testid="UserCell"]');
+      button.scrollIntoView({block:"center"});
+      await sleep(400);
+      button.click();
+      const confirmButton=await waitFor('[data-testid="confirmationSheetConfirm"]');
+      if(!confirmButton){
+        errors++;
+        document.dispatchEvent(new KeyboardEvent("keydown",{key:"Escape",bubbles:true}));
+        if(errors>=3)break;
+        await sleep(3000);
+        continue;
+      }
+      confirmButton.click();
+      count++;
+      errors=0;
+      if(cell)cell.remove();
+      await sleep(12000+Math.random()*13000);
+    }
+    alert(
+      window.__twitterCleanStop
+        ?"Stopped.\\nAccounts unfollowed this run: "+count
+        :"Finished.\\nAccounts unfollowed this run: "+count+"\\n\\nIf anyone remains, reload and run again."
+    );
+  })();
+})();`;
+
 export const bookmarklets: Bookmarklet[] = [
 	{
 		id: 'remove-likes',
@@ -115,5 +171,13 @@ export const bookmarklets: Bookmarklet[] = [
 		description: 'Deletes your tweets and undoes retweets on the current timeline.',
 		usage: 'Open your Posts or Replies tab before running.',
 		href: toBookmarkletHref(deletePostsSource),
+	},
+	{
+		id: 'unfollow-all',
+		name: 'Unfollow All',
+		description:
+			'Unfollows people on your Following page one by one, with a confirmation for each.',
+		usage: 'Open your own Following page before running this.',
+		href: toBookmarkletHref(unfollowAllSource),
 	},
 ];

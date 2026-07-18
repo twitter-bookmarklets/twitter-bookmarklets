@@ -36,7 +36,7 @@ function htmlSeoPlugin(): Plugin {
 							priceCurrency: 'USD',
 						},
 						description:
-							'Bookmarklets that help you remove likes and delete tweets on Twitter from your browser.',
+							'Bookmarklets that help you remove likes, delete tweets, and unfollow accounts on Twitter from your browser.',
 					},
 				],
 			});

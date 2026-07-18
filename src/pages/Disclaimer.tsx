@@ -36,10 +36,10 @@ export function Disclaimer() {
 
 			<LegalSection title="Irreversible actions">
 				<p>
-					Bookmarklets may unlike posts, delete tweets, undo retweets, or take other destructive
-					actions on your account. Those actions often cannot be undone. You alone decide to run a
-					bookmarklet and to confirm any dialog it shows. Review what you are about to do before you
-					continue.
+					Bookmarklets may unlike posts, delete tweets, undo retweets, unfollow accounts, or take
+					other destructive actions on your account. Those actions often cannot be undone. You alone
+					decide to run a bookmarklet and to confirm any dialog it shows. Review what you are about
+					to do before you continue.
 				</p>
 			</LegalSection>
 

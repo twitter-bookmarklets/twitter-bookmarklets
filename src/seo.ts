@@ -4,7 +4,7 @@ export const SITE_NAME = 'Twitter Bookmarklets';
 export const DEFAULT_SITE_URL = 'https://twitter-bookmarklets.com';
 
 export const DEFAULT_DESCRIPTION =
-	'Free Twitter bookmarklets to remove likes and delete tweets. Drag to your bookmarks bar and clean up your account in the browser.';
+	'Free Twitter bookmarklets to remove likes, delete tweets, and unfollow accounts. Drag to your bookmarks bar and clean up your account in the browser.';
 
 export type PageSeo = {
 	title: string;

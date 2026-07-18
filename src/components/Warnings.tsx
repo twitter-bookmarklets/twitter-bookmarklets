@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 const warnings = [
-	'Unlikes and deletions cannot be undone. Read the confirm dialog before you start.',
+	'Unlikes, deletions, and unfollows cannot be undone. Read the confirm dialog before you start.',
 	<>
 		To stop a run, reload the page or run{' '}
 		<code className="rounded bg-white px-1.5 py-0.5 font-mono text-xs">
